@@ -32,11 +32,15 @@ gulp.task('html:compile', function () {
 });
 
 /*--------------Sass compile--------------*/
-gulp.task('sass:compile', function(){
+gulp.task('sass:compile', function () {
 	return gulp.src('source/sass/main.+(sass|scss)')
 		.pipe(sourcemaps.init())
-		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-		.pipe(autoprefixer({browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7']}))
+		.pipe(sass({
+			outputStyle: 'compressed'
+		}).on('error', sass.logError))
+		.pipe(autoprefixer({
+			browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7']
+		}))
 		.pipe(rename('main.min.css'))
 		.pipe(sourcemaps.write('./maps'))
 		.pipe(gulp.dest('build/css'));
@@ -44,7 +48,9 @@ gulp.task('sass:compile', function(){
 
 /*----------------JS-----------------*/
 var jsOrder = [
-	'source/js/**/*.js'
+	'source/js/jquery.min.js',
+	'source/js/site.min.js',
+	'source/js/main.js'
 ];
 
 gulp.task('js:compile', function () {
@@ -91,8 +97,8 @@ gulp.task('copy:fonts', function () {
 
 /*--------------Copy images--------------*/
 gulp.task('copy:images', function () {
-	return gulp.src('./source/img/**/*.*')
-		.pipe(gulp.dest('build/img'));
+	return gulp.src('./source/images/**/*.*')
+		.pipe(gulp.dest('build/images'));
 });
 
 /*--------------Copy php--------------*/
@@ -102,7 +108,7 @@ gulp.task('copy:php', function () {
 });
 
 /*--------------Copy libs--------------*/
-gulp.task('copy:libs', function(){
+gulp.task('copy:libs', function () {
 	return gulp.src('./source/libs/**/*.*')
 		.pipe(gulp.dest('build/libs'));
 });
@@ -110,14 +116,14 @@ gulp.task('copy:libs', function(){
 /*--------------Copy other--------------*/
 gulp.task('copy:other', function () {
 	var otherSrc = [
-		'./source/*.*'
+		'./source/styleswitcher/**/*.*'
 	];
 	return gulp.src(otherSrc)
-		.pipe(gulp.dest('build'))
+		.pipe(gulp.dest('build/styleswitcher'))
 });
 
 /*--------------Copy --------------*/
-gulp.task('copy', gulp.parallel('copy:fonts', 'copy:images', 'copy:php','copy:libs','copy:other'));
+gulp.task('copy', gulp.parallel('copy:fonts', 'copy:images', 'copy:php', 'copy:libs', 'copy:other'));
 
 /*--------------Watchers--------------*/
 gulp.task('watch', function () {
