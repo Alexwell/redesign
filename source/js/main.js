@@ -758,7 +758,6 @@ $(function() {
                 lastUpdated: 1505845276,
                 items: [
                     buildItem("johndoe-1", "photo", 5, "images/portfolio5.jpeg", "images/portfolio5.jpeg", '', false, 1505845276),
-                    buildItem("johndoe-2", "video", 0, "images/storyvideo.mp4", "images/storyvideo.mp4", '', false, 1505845276),
                     buildItem("johndoe-3", "photo", 3, "images/portrait.jpg", "images/portrait.jpg", '', false, 1505845276),
                 ]
             }]
