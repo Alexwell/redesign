@@ -116,10 +116,10 @@ gulp.task('copy:libs', function () {
 /*--------------Copy other--------------*/
 gulp.task('copy:other', function () {
 	var otherSrc = [
-		'./source/styleswitcher/**/*.*'
+		'./source/*.*'
 	];
 	return gulp.src(otherSrc)
-		.pipe(gulp.dest('build/styleswitcher'))
+		.pipe(gulp.dest('build/'))
 });
 
 /*--------------Copy --------------*/
