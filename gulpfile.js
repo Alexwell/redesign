@@ -127,7 +127,6 @@ gulp.task('copy', gulp.parallel('copy:fonts', 'copy:images', 'copy:php', 'copy:l
 
 /*--------------Watchers--------------*/
 gulp.task('watch', function () {
-	gulp.watch('source/**/*.html', gulp.series('html:compile'));
 	gulp.watch(['source/sass/**/*.scss', 'source/sass/**/*.css'], gulp.series('sass:compile'));
 	gulp.watch('source/js/**/*.js', gulp.series('js:compile'));
 	gulp.watch('source/img/**/*.*', gulp.series('copy:images'));
@@ -139,12 +138,12 @@ gulp.task('watch', function () {
 
 gulp.task('default', gulp.series(
 	'clean',
-	gulp.parallel('html:compile', 'sass:compile', 'js:compile-min', 'sprite', 'copy'),
+	gulp.parallel('sass:compile', 'js:compile-min', 'sprite', 'copy'),
 	gulp.parallel('watch', 'server')
 ));
 
 gulp.task('test', gulp.series(
 	'clean',
-	gulp.parallel('html:compile', 'sass:compile', 'js:compile', 'sprite', 'copy'),
+	gulp.parallel('sass:compile', 'js:compile', 'sprite', 'copy'),
 	gulp.parallel('watch', 'server')
 ));

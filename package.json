@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/alexander-web/redesign"
   },
   "keywords": [
     "gulp",
@@ -17,9 +17,9 @@
   "author": "Alex",
   "license": "ISC",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/alexander-web/redesign"
   },
-  "homepage": "",
+  "homepage": "https://github.com/alexander-web/redesign",
   "devDependencies": {
     "browser-sync": "^2.23.6",
     "gulp": "github:gulpjs/gulp#4.0",
